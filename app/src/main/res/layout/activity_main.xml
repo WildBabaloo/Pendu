@@ -4,12 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imgPendu"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            tools:srcCompat="@tools:sample/avatars" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,27 +40,32 @@
                 android:textSize="24sp" />
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/imgPendu"
-            android:layout_width="match_parent"
-            android:layout_height="285dp"
-            tools:srcCompat="@tools:sample/avatars" />
-
-		<Button
-			android:id="@+id/btnReinit"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="Réinitialiser"
-			/>
-		
-        <TextView
-            android:id="@+id/tvMot"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text=""
-            android:textAlignment="center"
-            android:textSize="34sp" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="50sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvLettresMots"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_weight="1"
+                android:textSize="34sp" />
+        </RelativeLayout>
 
         <TableLayout
             android:id="@+id/tableLayout"
@@ -67,7 +79,7 @@
                 <Button
                     android:id="@+id/btnQ"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="Q" />
@@ -75,7 +87,7 @@
                 <Button
                     android:id="@+id/btnW"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="W" />
@@ -83,7 +95,7 @@
                 <Button
                     android:id="@+id/btnE"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="E" />
@@ -91,7 +103,7 @@
                 <Button
                     android:id="@+id/btnR"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="R" />
@@ -99,7 +111,7 @@
                 <Button
                     android:id="@+id/btnT"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="T" />
@@ -107,7 +119,7 @@
                 <Button
                     android:id="@+id/btnY"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="Y" />
@@ -115,7 +127,7 @@
                 <Button
                     android:id="@+id/btnU"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="U" />
@@ -123,7 +135,7 @@
                 <Button
                     android:id="@+id/btnI"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="I" />
@@ -131,35 +143,36 @@
                 <Button
                     android:id="@+id/btnO"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="O" />
+
                 <Button
                     android:id="@+id/btnP"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="P" />
             </TableRow>
 
             <TableRow
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <Button
                     android:id="@+id/btnA"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
-                    android:text="A"/>
+                    android:text="A" />
 
                 <Button
                     android:id="@+id/btnS"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="S" />
@@ -167,15 +180,15 @@
                 <Button
                     android:id="@+id/btnD"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="D" />
 
                 <Button
-					android:id="@+id/btnF"
+                    android:id="@+id/btnF"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="F" />
@@ -183,7 +196,7 @@
                 <Button
                     android:id="@+id/btnG"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="G" />
@@ -191,7 +204,7 @@
                 <Button
                     android:id="@+id/btnH"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="H" />
@@ -199,7 +212,7 @@
                 <Button
                     android:id="@+id/btnJ"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="J" />
@@ -207,7 +220,7 @@
                 <Button
                     android:id="@+id/btnK"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="K" />
@@ -215,11 +228,12 @@
                 <Button
                     android:id="@+id/btnL"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="L" />
-			</TableRow>
+            </TableRow>
+
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent">
@@ -227,15 +241,15 @@
                 <Button
                     android:id="@+id/btnZ"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="Z" />
-				
+
                 <Button
                     android:id="@+id/btnX"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="X" />
@@ -243,7 +257,7 @@
                 <Button
                     android:id="@+id/btnC"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="C" />
@@ -251,7 +265,7 @@
                 <Button
                     android:id="@+id/btnV"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="V" />
@@ -259,7 +273,7 @@
                 <Button
                     android:id="@+id/btnB"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="B" />
@@ -267,7 +281,7 @@
                 <Button
                     android:id="@+id/btnN"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="N" />
@@ -275,7 +289,7 @@
                 <Button
                     android:id="@+id/btnM"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="75dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:text="M" />
@@ -284,6 +298,12 @@
             </TableRow>
 
         </TableLayout>
+
+        <Button
+            android:id="@+id/btnReinit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Réinitialiser" />
 
     </LinearLayout>
 
