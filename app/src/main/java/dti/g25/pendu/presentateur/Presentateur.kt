@@ -16,6 +16,7 @@ class Presentateur (var vue: MainActivity){
             }
             vue.afficherEtatLettres(lesLettres)
             vue.afficherScore(jeu.pointage)
+            vue.afficherImage(jeu.nbErreurs)
             if (jeu.estReussi()){
                     vue.afficherReussi()
             }
