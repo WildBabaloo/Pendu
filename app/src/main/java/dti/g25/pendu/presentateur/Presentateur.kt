@@ -6,33 +6,37 @@ import dti.g25.pendu.modele.Jeu
 class Presentateur (var vue: MainActivity){
 
     var jeu = Jeu(listeDesMots())
+        var hasStarted : Boolean = false
 
     fun selectionnerLettre(lettre: Char){
-            var lesLettres: String = ""
-            println(lettre)
-            jeu.essayerUneLettre(lettre)
-            for(lettresTrouve: Char in jeu.etatLettres()){
-                    lesLettres += lettresTrouve.toString() + " "
-            }
-            vue.afficherEtatLettres(lesLettres)
-            vue.afficherScore(jeu.pointage)
-            vue.afficherImage(jeu.nbErreurs)
-            if (jeu.estReussi()){
-                    vue.afficherReussi()
-            }
-            if (jeu.isFailed()){
-                    vue.afficherFailed()
+            if(hasStarted){
+                    jeu.essayerUneLettre(lettre)
+                    val lesLettres: String = jeu.etatLettres().joinToString(" ")
+                    vue.changerCouleur(lettre)
+                    vue.afficherEtatLettres(lesLettres)
+                    vue.afficherScore(jeu.pointage)
+                    vue.afficherImage(jeu.nbErreurs)
+                    vue.afficherInstructions()
+                    if (jeu.estReussi()){
+                            vue.afficherReussi()
+                            hasStarted = false
+                    }
+                    if (jeu.isFailed()){
+                            vue.afficherFailed(jeu.motADeviner)
+                            hasStarted = false
+                    }
             }
     }
 
         fun demarrer(){
-                var etatResetLettres: String = ""
+                hasStarted = true
+                //var etatResetLettres: String = ""
                 jeu.reinitialiser()
-                for(lettresTrouve: Char in jeu.etatLettres()){
-                        etatResetLettres += lettresTrouve.toString() + " "
-                }
+                val etatResetLettres = jeu.etatLettres().joinToString(" ")
+                vue.afficherInstructions()
                 vue.afficherEtatLettres(etatResetLettres)
                 vue.afficherScore(jeu.pointage)
+                vue.afficherImage(0)
                 vue.afficherReset()
         }
 
@@ -48,7 +52,6 @@ class Presentateur (var vue: MainActivity){
                 "Vent\n" ,
                 "Canard\n" ,
                 "Tournesol\n" ,
-                "Pastèque\n" ,
                 "Cerf\n" ,
                 "Cheval\n" ,
                 "Piano\n" ,
@@ -87,7 +90,6 @@ class Presentateur (var vue: MainActivity){
                 "Escalier\n" ,
                 "Haricot\n" ,
                 "Nuageux\n" ,
-                "Balançoire\n" ,
                 "Sourire\n" ,
                 "Poisson\n" ,
                 "Statue\n" ,

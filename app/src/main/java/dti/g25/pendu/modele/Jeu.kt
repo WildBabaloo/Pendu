@@ -15,25 +15,27 @@ class Jeu (listeDeMots: Array<String>)  {
     init {
         this.listeDeMots = listeDeMots
         motADeviner = this.listeDeMots[kotlin.random.Random.nextInt(this.listeDeMots.size)]
-        println(motADeviner)
     }
 
-    fun essayerUneLettre(lettre: Char): Boolean{
-        var reussiOrNo: Boolean = false
-        lettresEssayees.set(nbErreurs+pointage, lettre)
-        var arrayMotADeviner: Array<String> = motADeviner.map { it.toString() }.toTypedArray()
-        for(lettresMotADeviner: String in arrayMotADeviner){
-            if(lettresMotADeviner.single().lowercase().equals((lettre.lowercase()))){
-                pointage+=1
+    fun essayerUneLettre(lettre: Char): Boolean {
+        if (lettre in lettresEssayees) {
+            nbErreurs++
+            return false
+        }
+        lettresEssayees[nbErreurs + pointage] = lettre
+        val arrayMotADeviner = motADeviner.toCharArray()
+        var reussiOrNo = false
+        arrayMotADeviner.forEach { lettreMotADeviner ->
+            if (lettreMotADeviner.lowercase() == lettre.lowercase()) {
+                pointage++
                 reussiOrNo = true
             }
         }
-        if(reussiOrNo){
+        if (reussiOrNo) {
             return true
-        } else {
-            nbErreurs+=1
-            return false
         }
+        nbErreurs++
+        return false
     }
 
     fun estReussi(): Boolean{
@@ -44,7 +46,7 @@ class Jeu (listeDeMots: Array<String>)  {
     }
 
     fun isFailed(): Boolean{
-        if(nbErreurs >= 9){
+        if(nbErreurs >= 6){
             return true
         }
         return false
@@ -55,24 +57,22 @@ class Jeu (listeDeMots: Array<String>)  {
         nbErreurs = 0
         lettresEssayees = CharArray(26){' '}
         motADeviner = this.listeDeMots[kotlin.random.Random.nextInt(this.listeDeMots.size)]
-        println(motADeviner)
     }
-
 
     fun etatLettres(): CharArray{
         var i: Int = 0
-        var pendu: CharArray = CharArray(motADeviner.length - 1) {'_'}
-        var arrayMotADeviner: Array<String> = motADeviner.map { it.toString() }.toTypedArray()
+        var etatLettres: CharArray = CharArray(motADeviner.length - 1) {'_'}
+        val arrayMotADeviner: Array<String> = motADeviner.map { it.toString() }.toTypedArray()
         for (lettresDevines: Char in lettresEssayees){
             i = 0
             for(lettresMotADeviner: String in arrayMotADeviner){
                 if(lettresMotADeviner.single().lowercase().equals((lettresDevines.lowercase()))){
-                    pendu.set(i, lettresDevines)
+                    etatLettres.set(i, lettresDevines)
                 }
                 i++
             }
         }
-        return pendu
+        return etatLettres
     }
 
 

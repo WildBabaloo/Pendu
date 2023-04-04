@@ -46,8 +46,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v : View) {
-        lettres[v.id.toChar().code - 98].setBackgroundColor(COULEUR_SELECTIONNE)
-        presentateur.selectionnerLettre(v.id.toChar()-1)
+        var lettreButton: Button = v as Button
+        var buttonText : String = lettreButton.text.toString()
+        presentateur.selectionnerLettre(buttonText.single())
+    }
+    fun changerCouleur(lettre : Char){
+        lettres[lettre.code - 65].setBackgroundColor(COULEUR_SELECTIONNE)
     }
     fun afficherEtatLettres(etat: String){
         tvLettresMots.text = etat
@@ -55,22 +59,25 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     fun afficherScore(score: Int){
         tvScore.text = score.toString()
     }
+    fun afficherInstructions(){
+        tvResult.text = "Devinez ce mot :"
+    }
     fun afficherReussi(){
         tvResult.text = "CONGRATS!"
     }
-    fun afficherFailed(){
+    fun afficherFailed(motADeviner : String){
         tvResult.text = "YOU DIED!"
+        tvLettresMots.text = "Le mot était : " +motADeviner
     }
 
     fun afficherReset(){
-        tvResult.text = ""
         for(buttonLettre: Button in lettres){
             buttonLettre.setBackgroundColor(COULEUR_NORMAL)
         }
     }
 
     fun afficherImage(numero: Int){
-        var imageValue = "HangMan$numero"
+        var imageValue = "hangman$numero"
         var id: Int = resources.getIdentifier(imageValue, "drawable", packageName)
         imagePendu.setImageResource(id)
     }
