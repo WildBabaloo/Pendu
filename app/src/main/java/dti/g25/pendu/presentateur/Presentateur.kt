@@ -8,6 +8,11 @@ class Presentateur (var vue: MainActivity){
     var jeu = Jeu(listeDesMots())
         var hasStarted : Boolean = false
 
+        /**
+         * Réagit à une sélection d'une lettre
+         *
+         * @param lettre La lettre cliqué
+         */
     fun selectionnerLettre(lettre: Char){
             if(hasStarted){
                     jeu.essayerUneLettre(lettre)
@@ -28,9 +33,12 @@ class Presentateur (var vue: MainActivity){
             }
     }
 
+        /**
+         * Réinitialise le jeu
+         */
+
         fun demarrer(){
                 hasStarted = true
-                //var etatResetLettres: String = ""
                 jeu.reinitialiser()
                 val etatResetLettres = jeu.etatLettres().joinToString(" ")
                 vue.afficherInstructions()
@@ -40,8 +48,12 @@ class Presentateur (var vue: MainActivity){
                 vue.afficherReset()
         }
 
+        /**
+         * Liste des mots
+         */
+
     fun listeDesMots(): Array<String>{
-        val lesMots = arrayOf<String>("Baleine\n" ,
+        return arrayOf<String>("Baleine\n" ,
                 "Enfant\n" ,
                 "Tapisserie\n" ,
                 "Nuage\n" ,
@@ -118,8 +130,6 @@ class Presentateur (var vue: MainActivity){
                 "Papaye\n" ,
                 "Enfant\n" ,
                 "Statue")
-
-        return lesMots
     }
 
 }

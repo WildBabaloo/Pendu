@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_weight="1"
-                android:text="Cliquer sur réinitialiser pour commencer"
+                android:text="Cliquez sur débuter!"
                 android:textSize="34sp" />
         </RelativeLayout>
 
@@ -308,7 +308,7 @@
             android:id="@+id/btnReinit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Réinitialiser" />
+            android:text="DÉBUTER" />
 
     </LinearLayout>
 

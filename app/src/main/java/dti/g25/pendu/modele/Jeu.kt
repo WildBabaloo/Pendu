@@ -17,6 +17,13 @@ class Jeu (listeDeMots: Array<String>)  {
         motADeviner = this.listeDeMots[kotlin.random.Random.nextInt(this.listeDeMots.size)]
     }
 
+    /**
+     * Essaye une lettre choisi par le joueur en cliquant le bouton
+     *
+     *  @param lettre La lettre à essayer
+     *
+     * @return true si la lettre est dans le mot à trouver sinon false si ce n'est pas
+     */
     fun essayerUneLettre(lettre: Char): Boolean {
         if (lettre in lettresEssayees) {
             nbErreurs++
@@ -38,12 +45,24 @@ class Jeu (listeDeMots: Array<String>)  {
         return false
     }
 
+    /**
+     * Voir si tout les lettres du mot ont été trouvé
+     *
+     * @return true si le joueur a gagné sinon retourne false
+     */
+
     fun estReussi(): Boolean{
         if(pointage >= motADeviner.length - 1){
             return true
         }
         return false
     }
+
+    /**
+     * Voir si le joueur a perdu
+     *
+     * @return true si le joueur a perdu sinon retourne false
+     */
 
     fun isFailed(): Boolean{
         if(nbErreurs >= 6){
@@ -52,12 +71,21 @@ class Jeu (listeDeMots: Array<String>)  {
         return false
     }
 
+    /**
+     * Réinitialise le jeu
+     */
     fun reinitialiser(){
         pointage = 0
         nbErreurs = 0
         lettresEssayees = CharArray(26){' '}
         motADeviner = this.listeDeMots[kotlin.random.Random.nextInt(this.listeDeMots.size)]
     }
+
+    /**
+     * Verfier l'état des lettres
+     *
+     * @return Une liste de caractères qui montre quelle lettres le joueur a trouvé sinon pas une lettres pas trouvé va être un "_"
+     */
 
     fun etatLettres(): CharArray{
         var i: Int = 0
@@ -77,7 +105,9 @@ class Jeu (listeDeMots: Array<String>)  {
 
 
 }
-
+/**
+ * Tests
+ */
 fun main() {
     val listeMots = arrayOf<String>("Serendipity\n",
             "Pernicious\n",

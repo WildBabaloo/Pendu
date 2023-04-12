@@ -80,9 +80,4 @@ class JeuTest {
             "Inscrutable")
         return listeMots
     }
-    fun main(){
-        testEssayerLettre()
-        testEstReussi()
-        testIsFailed()
-    }
 }
