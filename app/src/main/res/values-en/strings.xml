@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Hangman</string>
+    <string name="welcome">Welcome!</string>
+    <string name="instructionDébut">Click on start!</string>
+    <string name="buttonDébuter">Start</string>
+    <string name="btnRestart">Restart</string>
+    <string name="score">Score</string>
+    <string name="skillIssue">SKILL ISSUE</string>
+    <string name="motReveal">The word was :</string>
+    <string name="win">CONGRATS!</string>
+    <string name="guessWord">Guess this word :</string>
 </resources>

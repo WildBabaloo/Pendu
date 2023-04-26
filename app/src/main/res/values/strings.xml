@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Pendu</string>
+    <string name="welcome">Bienvenue!</string>
+    <string name="instructionDébut">Cliquez sur débuter!</string>
+    <string name="buttonDébuter">Débuter</string>
+    <string name="btnRestart">Recommencer</string>
+    <string name="score">Score</string>
+    <string name="skillIssue">PROBLÈME DE COMPÉTENCES</string>
+    <string name="motReveal">Le mot était :</string>
+    <string name="win">FÉLICITATIONS!</string>
+    <string name="guessWord">Devinez ce mot :</string>
 </resources>

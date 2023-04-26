@@ -1,67 +1,68 @@
-package dti.g25.pendu.modele
+package dti.g25.pendu.test
 
+import dti.g25.pendu.modèle.Jeu
 import org.junit.Test
 
 class JeuTest {
 
     @Test
     fun testEssayerLettre(){
-        var valeurObservee: Boolean
+        var valeurObservée: Boolean
         val valeurAttendue = true
         var jeuTest = Jeu(listeMots())
 
-        valeurObservee = jeuTest.essayerUneLettre('A')
-        println("Le mot est : " +jeuTest.motADeviner)
-        if(valeurObservee == valeurAttendue){
+        valeurObservée = jeuTest.essayerUneLettre('A')
+        println("Le mot est : " +jeuTest.motÀDeviner)
+        if(valeurObservée == valeurAttendue){
             println("SUCCESS!")
         }
         else {
-            println("ERREUR: attendu: "+valeurAttendue+" observé: "+valeurObservee)
+            println("ERREUR: attendu: "+valeurAttendue+" observé: "+valeurObservée)
         }
 
     }
 
     @Test
     fun testEstReussi(){
-        var valeurObservee: Boolean
+        var valeurObservée: Boolean
         val valeurAttendue = true
         var jeuTest = Jeu(listeMots())
 
-        valeurObservee = jeuTest.estReussi()
-        if(valeurObservee == valeurAttendue){
+        valeurObservée = jeuTest.estRéussi()
+        if(valeurObservée == valeurAttendue){
             println("SUCCESS!")
         }
         else {
-            println("ERREUR: attendu: "+valeurAttendue+" observé: "+valeurObservee)
+            println("ERREUR: attendu: "+valeurAttendue+" observé: "+valeurObservée)
         }
 
     }
 
     @Test
-    fun testIsFailed(){
-        var valeurObservee: Boolean
+    fun testEstUnÉchec(){
+        var valeurObservée: Boolean
         val valeurAttendue = true
         var jeuTest = Jeu(listeMots())
 
-        valeurObservee = jeuTest.isFailed()
-        if(valeurObservee == valeurAttendue){
+        valeurObservée = jeuTest.estUnÉchec()
+        if(valeurObservée == valeurAttendue){
             println("SUCCESS!")
         }
         else {
-            println("ERREUR: attendu: "+valeurAttendue+" observé: "+valeurObservee)
+            println("ERREUR: attendu: "+valeurAttendue+" observé: "+valeurObservée)
         }
 
     }
 
     @Test
-    fun testEtatLettres(){
-        lateinit var valeurObservee: CharArray
+    fun testÉtatLettres(){
+        lateinit var valeurObservée: CharArray
         //val valeurAttendue = true
         var jeuTest = Jeu(listeMots())
         jeuTest.essayerUneLettre('E')
-        println("Le mot est : " +jeuTest.motADeviner)
-        valeurObservee = jeuTest.etatLettres()
-        for (valeur: Char in valeurObservee){
+        println("Le mot est : " +jeuTest.motÀDeviner)
+        valeurObservée = jeuTest.étatLettres()
+        for (valeur: Char in valeurObservée){
             print(valeur)
         }
 

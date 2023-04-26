@@ -1,34 +1,34 @@
 package dti.g25.pendu.presentateur
 
 import dti.g25.pendu.MainActivity
-import dti.g25.pendu.modele.Jeu
+import dti.g25.pendu.modèle.Jeu
 
 class Presentateur (var vue: MainActivity){
 
     var jeu = Jeu(listeDesMots())
-        var hasStarted : Boolean = false
+        var aCommencé : Boolean = false
 
         /**
          * Réagit à une sélection d'une lettre
          *
          * @param lettre La lettre cliqué
          */
-    fun selectionnerLettre(lettre: Char){
-            if(hasStarted){
+    fun sélectionnerLettre(lettre: Char){
+            if(aCommencé){
                     jeu.essayerUneLettre(lettre)
-                    val lesLettres: String = jeu.etatLettres().joinToString(" ")
+                    val lesLettres: String = jeu.étatLettres().joinToString(" ")
                     vue.changerCouleur(lettre)
-                    vue.afficherEtatLettres(lesLettres)
+                    vue.afficherÉtatLettres(lesLettres)
                     vue.afficherScore(jeu.pointage)
                     vue.afficherImage(jeu.nbErreurs)
                     vue.afficherInstructions()
-                    if (jeu.estReussi()){
-                            vue.afficherReussi()
-                            hasStarted = false
+                    if (jeu.estRéussi()){
+                            vue.afficherRéussi()
+                            aCommencé = false
                     }
-                    if (jeu.isFailed()){
-                            vue.afficherFailed(jeu.motADeviner)
-                            hasStarted = false
+                    if (jeu.estUnÉchec()){
+                            vue.afficherÉchec(jeu.motÀDeviner)
+                            aCommencé = false
                     }
             }
     }
@@ -37,12 +37,12 @@ class Presentateur (var vue: MainActivity){
          * Réinitialise le jeu
          */
 
-        fun demarrer(){
-                hasStarted = true
-                jeu.reinitialiser()
-                val etatResetLettres = jeu.etatLettres().joinToString(" ")
+        fun démarrer(){
+                aCommencé = true
+                jeu.réinitialiser()
+                val etatResetLettres = jeu.étatLettres().joinToString(" ")
                 vue.afficherInstructions()
-                vue.afficherEtatLettres(etatResetLettres)
+                vue.afficherÉtatLettres(etatResetLettres)
                 vue.afficherScore(jeu.pointage)
                 vue.afficherImage(0)
                 vue.afficherReset()

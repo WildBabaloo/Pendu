@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         imagePendu = findViewById(R.id.imgPendu)
 
         btnRecommencer = findViewById(R.id.btnReinit) as Button
-        btnRecommencer.setOnClickListener{presentateur.demarrer()}
+        btnRecommencer.setOnClickListener{presentateur.démarrer()}
 
     }
 
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v : View) {
         var lettreButton: Button = v as Button
         var buttonText : String = lettreButton.text.toString()
-        presentateur.selectionnerLettre(buttonText.single())
+        presentateur.sélectionnerLettre(buttonText.single())
     }
 
     /**
@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
      *
      * @param clic L'état des lettres (Such creative! WOW!)
      */
-    fun afficherEtatLettres(etat: String){
+    fun afficherÉtatLettres(etat: String){
         tvLettresMots.text = etat
     }
 
@@ -92,22 +92,22 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
      * Afficher les instructions
      */
     fun afficherInstructions(){
-        tvResult.text = "Devinez ce mot :"
+        tvResult.text = getString(R.string.guessWord)
     }
 
     /**
      * Afficher la réussite (On god)
      */
-    fun afficherReussi(){
-        tvResult.text = "CONGRATS!"
+    fun afficherRéussi(){
+        tvResult.text = getString(R.string.win)
     }
 
     /**
      * Afficher L'INCOMPÉTENCE DU JOUEUR DE NE PAS DEVINER LE MOT HAHAHAHAHHAHAHAHAHA
      */
-    fun afficherFailed(motADeviner : String){
-        tvResult.text = "SKILL ISSUE!"
-        tvLettresMots.text = "Le mot était : " +motADeviner
+    fun afficherÉchec(motADeviner : String){
+        tvResult.text = getString(R.string.skillIssue)
+        tvLettresMots.text = getString(R.string.motReveal)+ " " +motADeviner
     }
 
     /**
@@ -115,7 +115,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
      */
 
     fun afficherReset(){
-        btnRecommencer.text = "RÉINITIALISER"
+        btnRecommencer.text = getString(R.string.btnRestart)
         for(buttonLettre: Button in lettres){
             buttonLettre.setBackgroundColor(COULEUR_NORMAL)
         }
